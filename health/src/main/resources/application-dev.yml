@@ -1,0 +1,33 @@
+app:
+  basepackage: recruitmentstatics
+  packagesToScan:  com.develop.recruitmentstatics
+  systemusername: develop
+  user: master
+
+server:
+    compression:
+        enabled: true
+        mime-types: application/json,application/xml,text/html,text/xml,text/plain,text/css,application/javascript
+        min-response-size: 1024
+    port: 8085
+    servlet:
+      context-path: /recruitmentstatics/
+
+spring:
+  application:
+    name: recruitmentstatics
+  jpa.hibernate.ddl-auto: update
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    jdbc-url: jdbc:mysql://localhost/recruitmentstatics?useSSL=false
+    url: jdbc:mysql://localhost/recruitmentstatics?useSSL=false
+    username: root
+    password: root
+  jpa.database : MYSQL
+  jpa.show-sql : true
+logging:
+    file: /var/log/recruitmentstatics/recruitmentstatics.log
+    level:
+        com:
+            develop: TRACE
+
