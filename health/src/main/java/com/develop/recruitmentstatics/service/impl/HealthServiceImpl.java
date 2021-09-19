@@ -114,11 +114,11 @@ public class HealthServiceImpl implements HealthService {
 
             if (CollectionUtils.isEmpty(selfAssessmentRequest.getSymptoms()) && !selfAssessmentRequest.getTravelHistory() && !selfAssessmentRequest.getContactWithCovidPatient())
                 return SelfAssessmentResponse.builder().riskPercentage(5.0D).build();
-            else if ((!CollectionUtils.isEmpty(selfAssessmentRequest.getSymptoms()) && selfAssessmentRequest.getSymptoms().size() == 1) && (!selfAssessmentRequest.getTravelHistory() || !selfAssessmentRequest.getContactWithCovidPatient()))
+            else if ((!CollectionUtils.isEmpty(selfAssessmentRequest.getSymptoms()) && selfAssessmentRequest.getSymptoms().size() == 1) && (selfAssessmentRequest.getTravelHistory() || selfAssessmentRequest.getContactWithCovidPatient()))
                 return SelfAssessmentResponse.builder().riskPercentage(50.0D).build();
-            else if ((!CollectionUtils.isEmpty(selfAssessmentRequest.getSymptoms()) && selfAssessmentRequest.getSymptoms().size() == 2) && (!selfAssessmentRequest.getTravelHistory() || !selfAssessmentRequest.getContactWithCovidPatient()))
+            else if ((!CollectionUtils.isEmpty(selfAssessmentRequest.getSymptoms()) && selfAssessmentRequest.getSymptoms().size() == 2) && (selfAssessmentRequest.getTravelHistory() || selfAssessmentRequest.getContactWithCovidPatient()))
                 return SelfAssessmentResponse.builder().riskPercentage(75.0D).build();
-            else if ((!CollectionUtils.isEmpty(selfAssessmentRequest.getSymptoms()) && selfAssessmentRequest.getSymptoms().size() > 2) && (!selfAssessmentRequest.getTravelHistory() || !selfAssessmentRequest.getContactWithCovidPatient()))
+            else if ((!CollectionUtils.isEmpty(selfAssessmentRequest.getSymptoms()) && selfAssessmentRequest.getSymptoms().size() > 2) && (selfAssessmentRequest.getTravelHistory() || selfAssessmentRequest.getContactWithCovidPatient()))
                 return SelfAssessmentResponse.builder().riskPercentage(95.0D).build();
             else
                 throw new Exception("Risk Could not be calculated");
