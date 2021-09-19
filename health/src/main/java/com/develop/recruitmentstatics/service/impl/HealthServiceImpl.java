@@ -123,7 +123,7 @@ public class HealthServiceImpl implements HealthService {
             else
                 throw new Exception("Risk Could not be calculated");
         } catch (Exception e) {
-            throw new Exception("Failed to fetch zone info");
+            throw new Exception("Failed to calculate risk");
         }
 
     }
