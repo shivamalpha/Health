@@ -92,9 +92,9 @@ public class HealthServiceImpl implements HealthService {
             if (CollectionUtils.isEmpty(user))
                 return GetZoneInfoResponse.builder().numCases(0).zoneType(Zones.GREEN.name()).build();
             else if (user.size() < 5)
-                return GetZoneInfoResponse.builder().numCases(user.size()).zoneType("ORANGE").build();
+                return GetZoneInfoResponse.builder().numCases(user.size()).zoneType(Zones.ORANGE.name()).build();
             else
-                return GetZoneInfoResponse.builder().numCases(user.size()).zoneType("RED").build();
+                return GetZoneInfoResponse.builder().numCases(user.size()).zoneType(Zones.RED.name()).build();
 
         } catch (Exception e) {
             throw new Exception("Failed to fetch zone info");
