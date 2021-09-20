@@ -12,7 +12,7 @@ import javax.validation.Valid;
 @Slf4j
 @RestController
 @CrossOrigin(origins = "*")
-@RequestMapping(value = "/pager/v1")
+@RequestMapping(value = "/health/v1")
 public class HealthController {
 
     @Autowired
